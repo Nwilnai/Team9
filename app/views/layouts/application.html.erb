@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>card game!</title>
+    <title><%= full_title(yield(:title)) %></title>
     <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -15,7 +15,7 @@
     <%= render 'layouts/header' %>
     <div class="container">
       <%= yield %>
-       <%= render 'layouts/footer' %>
+      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>
