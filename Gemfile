@@ -5,6 +5,8 @@ ruby '2.7.2'
 
 gem 'bootstrap-sass', '3.4.1'
 
+gem 'faker'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.3'
 # Use postgresql as the database for Active Record
