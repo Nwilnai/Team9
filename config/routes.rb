@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :game_sessions
+  resources :games
   get                   'sessions/new'
   get                   'users/new'
   root                  'static_pages#home'
