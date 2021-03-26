@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+    has_many :game_sessions
+    has_many :games, through: :game_sessions
+
     attr_accessor :remember_token
     before_save { self.email = email.downcase }
     validates :name, presence: true, length: { maximum: 50 }
