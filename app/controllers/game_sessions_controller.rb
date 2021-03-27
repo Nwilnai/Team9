@@ -8,6 +8,7 @@ class GameSessionsController < ApplicationController
 
   # GET /game_sessions/1 or /game_sessions/1.json
   def show
+    @game_session = GameSession.find(params[:id])
   end
 
   # GET /game_sessions/new
