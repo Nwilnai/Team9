@@ -4,6 +4,9 @@
   <h2>
     You are currently on the home page.
   </h2>
-
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <% if logged_in?%>
+    <%= link_to "Start a Game!", new_game_session_path, class: "btn btn-lg btn-primary"%>
+  <%else%>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+  <%end%>
 </div>

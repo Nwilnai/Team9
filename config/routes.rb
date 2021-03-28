@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resources :game_sessions
-  resources :games
   get                   'sessions/new'
   get                   'users/new'
   root                  'static_pages#home'
@@ -12,5 +10,8 @@ Rails.application.routes.draw do
   get   '/login',   to: 'sessions#new'
   post  '/login',   to: 'sessions#create'
   delete'/logout',  to: 'sessions#destroy'
+
   resources :users
+  resources :game_sessions
+  resources :games
 end
