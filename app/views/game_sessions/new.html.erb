@@ -4,7 +4,3 @@
 <%@game_session.update_attribute(:game_id, Game.create().id) %>
 <%@game_session.update_attribute(:currently_playing, true) %>
 <% controller.redirect_to @game_session %>
-
-<%= render 'form', game_session: @game_session %>
-
-<%= link_to 'Back', game_sessions_path %>

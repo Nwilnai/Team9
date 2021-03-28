@@ -40,4 +40,34 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def make_API_call(full_link)
+    uri = URI(full_link)
+    http = Net::HTTP.new(uri.host)
+    req = Net::HTTP::Get.new(uri.path)
+    resp = http.request(req)
+    
+    json_resp=JSON.parse(resp.body)
+    #return parsed api response
+    json_resp
+  end
+
+  def self.dealer
+		User.find_by_name( "dealer") || User.create( :name => "dealer", :email => "dealer@dealer.com", :password => "dealer" )
+	end
+
+  def insert_deck_id(link, deck_id)
+    #if the link has the string <<deck_id>>, replace it with the actual deck id. otherwise, don't modify the link'
+    if link.include?("<<deck_id>>")
+        link=link.sub("<<deck_id>>", deck_id)
+    end
+    link
+  end
+
+  def hand
+    #make call with deck id and player inserted in and return only the current players hand
+    link= 'https://deckofcardsapi.com/api/deck/'+@game_session.get_deck_id+'/pile/'+current_user.id+'/list/'
+    result= make_API_call(link)
+    hand= result['piles'][current_user.id]
+  end
 end

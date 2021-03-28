@@ -18,13 +18,6 @@ class GameSession < ApplicationRecord
     self.update_attribute(:deck_id, deck_id)
     end
 
-    def insert_deck_id(link, deck_id)
-        #if the link has the string <<deck_id>>, replace it with the actual deck id. otherwise, don't modify the link'
-        if link.include?("<<deck_id>>")
-            link=link.sub("<<deck_id>>", deck_id)
-        end
-        link
-    end
     
     def get_deck_id
         if self.deck_id.nil?
@@ -34,4 +27,5 @@ class GameSession < ApplicationRecord
             self.deck_id
         end
     end
+    
 end
