@@ -11,7 +11,7 @@ class User < ApplicationRecord
                       uniqueness: true
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-    
+    hand= nil
     # Returns the hash digest of the given string.
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -41,12 +41,18 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
-  def make_API_call(full_link)
-    uri = URI(full_link)
+  def make_API_call(path)
+    uri = URI('https://deckofcardsapi.com/api/deck/')
     http = Net::HTTP.new(uri.host)
-    req = Net::HTTP::Get.new(uri.path)
+    req = Net::HTTP::Get.new(path)
     resp = http.request(req)
-    
+
+    if(resp.body == "<h1>Server Error (500)</h1>" )
+      return false
+      # while resp.body == "<h1>Server Error (500)</h1>" 
+      #   resp = http.request(req)
+      # end
+    end
     json_resp=JSON.parse(resp.body)
     #return parsed api response
     json_resp
@@ -56,18 +62,13 @@ class User < ApplicationRecord
 		User.find_by_name( "dealer") || User.create( :name => "dealer", :email => "dealer@dealer.com", :password => "dealer" )
 	end
 
-  def insert_deck_id(link, deck_id)
-    #if the link has the string <<deck_id>>, replace it with the actual deck id. otherwise, don't modify the link'
-    if link.include?("<<deck_id>>")
-        link=link.sub("<<deck_id>>", deck_id)
-    end
-    link
-  end
 
-  def hand
+  def hand(current_game)
     #make call with deck id and player inserted in and return only the current players hand
-    link= 'https://deckofcardsapi.com/api/deck/'+@game_session.get_deck_id+'/pile/'+current_user.id+'/list/'
-    result= make_API_call(link)
-    hand= result['piles'][current_user.id]
+    path= '/api/deck/' + current_game.get_deck_id + '/pile/userid' + self.id.to_s + '/list/'
+    result= make_API_call(path)
+    puts "HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAND"
+    puts result
+    hand= result['piles']["userid"+self.id.to_s]['cards']
   end
 end

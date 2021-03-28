@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User hand:</strong>
-  <%= current_user.hand %>
+  <strong>User:</strong>
+  <%= @game_session.user_id %>
 </p>
 
 <p>
@@ -13,10 +13,6 @@
 <p>
   <strong>Currently playing:</strong>
   <%= @game_session.currently_playing %>
-</p>
-<p>
-  <strong>Deck_id:</strong>
-  <%= @game_session.get_deck_id %>
 </p>
 
 <%= link_to 'Edit', edit_game_session_path(@game_session) %> |

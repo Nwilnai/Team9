@@ -1,6 +1,8 @@
 <h1>New Game Session</h1>
 
 <%@game_session.update_attribute(:user_id, current_user.id) %>
-<%@game_session.update_attribute(:game_id, Game.create().id) %>
+<% currgame= Game.create()%>
+<%@game_session.update_attribute(:game_id, currgame.id) %>
 <%@game_session.update_attribute(:currently_playing, true) %>
-<% controller.redirect_to @game_session %>
+<%currgame.init_game%>
+<% controller.redirect_to currgame %>
