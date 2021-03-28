@@ -42,7 +42,9 @@ class User < ApplicationRecord
   end
 
 
-
+  #lets you make a call to the api using a particular path. This is done because 
+    #the uri dropped arguments in the path on occasion (particularly "count?="),
+    #so we use the user provided path instead of a uri generated path.
   def make_API_call(path)
     uri = URI('https://deckofcardsapi.com/api/deck/')
     http = Net::HTTP.new(uri.host)
@@ -60,11 +62,12 @@ class User < ApplicationRecord
     json_resp
   end
 
+  #returns the existing dealer user, or creates dealer and returns
   def self.dealer
 		User.find_by_name( "dealer") || User.create( :name => "dealer", :email => "dealer@dealer.com", :password => "dealer" )
 	end
 
-
+  #show this user's hand via call to API
   def hand(current_game)
     #make call with deck id and player inserted in and return only the current players hand
     path= '/api/deck/' + current_game.get_deck_id + '/pile/userid' + self.id.to_s + '/list/'
