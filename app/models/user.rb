@@ -11,7 +11,7 @@ class User < ApplicationRecord
                       uniqueness: true
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-    hand= nil
+
     # Returns the hash digest of the given string.
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -41,6 +41,8 @@ class User < ApplicationRecord
     update_attribute(:remember_digest, nil)
   end
 
+
+
   def make_API_call(path)
     uri = URI('https://deckofcardsapi.com/api/deck/')
     http = Net::HTTP.new(uri.host)
@@ -48,10 +50,10 @@ class User < ApplicationRecord
     resp = http.request(req)
 
     if(resp.body == "<h1>Server Error (500)</h1>" )
-      return false
-      # while resp.body == "<h1>Server Error (500)</h1>" 
-      #   resp = http.request(req)
-      # end
+        resp = http.request(req)
+        if(resp.body == "<h1>Server Error (500)</h1>" )
+            return false
+          end
     end
     json_resp=JSON.parse(resp.body)
     #return parsed api response
@@ -67,8 +69,7 @@ class User < ApplicationRecord
     #make call with deck id and player inserted in and return only the current players hand
     path= '/api/deck/' + current_game.get_deck_id + '/pile/userid' + self.id.to_s + '/list/'
     result= make_API_call(path)
-    puts "HAAAAAAAAAAAAAAAAAAAAAAAAAAAAAND"
-    puts result
     hand= result['piles']["userid"+self.id.to_s]['cards']
   end
+
 end

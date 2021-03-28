@@ -6,24 +6,16 @@ class Game < ApplicationRecord
 
 
     def init_game
-        puts "INITIALIZING GAME"
 		self.users << User.dealer
         for user in self.users
-            puts "NEW USER: "
-            puts user.name
             cards=draw_cards(2)
             cardcodes=""
             for card in cards do
                 cardcodes+= card['code']+","
             end
             cardcodes=cardcodes[0, cardcodes.length-1]
-            puts cardcodes
             path= '/api/deck/' + self.get_deck_id + '/pile/userid' + user.id.to_s + '/add/?cards='+cardcodes
-            result=make_API_call(path)
-            puts result
-            path= '/api/deck/' + self.get_deck_id + '/pile/userid' + user.id.to_s + '/list/'
-            result=make_API_call(path)
-            puts result
+            make_API_call(path)
         end
 	end
 
