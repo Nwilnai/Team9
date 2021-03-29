@@ -11,7 +11,7 @@ class User < ApplicationRecord
                       uniqueness: true
     has_secure_password
     validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-    
+
     # Returns the hash digest of the given string.
   def self.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -40,4 +40,39 @@ class User < ApplicationRecord
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+
+  #lets you make a call to the api using a particular path. This is done because 
+    #the uri dropped arguments in the path on occasion (particularly "count?="),
+    #so we use the user provided path instead of a uri generated path.
+  def make_API_call(path)
+    uri = URI('https://deckofcardsapi.com/api/deck/')
+    http = Net::HTTP.new(uri.host)
+    req = Net::HTTP::Get.new(path)
+    resp = http.request(req)
+
+    if(resp.body == "<h1>Server Error (500)</h1>" )
+        resp = http.request(req)
+        if(resp.body == "<h1>Server Error (500)</h1>" )
+            return false
+          end
+    end
+    json_resp=JSON.parse(resp.body)
+    #return parsed api response
+    json_resp
+  end
+
+  #returns the existing dealer user, or creates dealer and returns
+  def self.dealer
+		User.find_by_name( "dealer") || User.create( :name => "dealer", :email => "dealer@dealer.com", :password => "dealer" )
+	end
+
+  #show this user's hand via call to API
+  def hand(current_game)
+    #make call with deck id and player inserted in and return only the current players hand
+    path= '/api/deck/' + current_game.get_deck_id + '/pile/userid' + self.id.to_s + '/list/'
+    result= make_API_call(path)
+    hand= result['piles']["userid"+self.id.to_s]['cards']
+  end
+
 end

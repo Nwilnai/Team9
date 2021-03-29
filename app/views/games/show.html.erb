@@ -1,4 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>    
+<tbody>
+    <% @game.users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+        <% user.hand(@game).each do |card|%>
+        <td><%= image_tag card['image'] %></td>
+        <% end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
