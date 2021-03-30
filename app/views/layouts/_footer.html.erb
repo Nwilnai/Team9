@@ -1,11 +1,20 @@
+<style>    
+nav ul li a{
+  color: black;
+}    
+</style>
 <footer class="navbar navbar-fixed-bottom navbar-inverse">
-  <h3>
-    by Nathaniel, Henry & Jared</a>
-  </h3>
   <nav>
-    <ul>
-      <li><%= link_to "Help",   help_path %></li>
-      <li><%= link_to "About", about_path %></li>
-    </ul>
+  <div class="navbar-inner">
+    <div class="container">
+        <ul class="nav navbar-nav pull-right" >
+          <li ><%= link_to "Help",   help_path %></li>
+          <li><%= link_to "About", about_path %></li>
+        </ul>
+        <h2>
+          by Nathaniel, Henry & Jared
+        </h2>
+      </div>
+    </div>
   </nav>
 </footer>
