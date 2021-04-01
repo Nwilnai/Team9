@@ -10,8 +10,11 @@ Rails.application.routes.draw do
   get   '/login',   to: 'sessions#new'
   post  '/login',   to: 'sessions#create'
   delete'/logout',  to: 'sessions#destroy'
-
+  get   '/games/:id/play',    to: 'games#play'
+  get   '/games/:id/hit',    to: 'games#hit'
+  get   '/games/:id/stand',    to: 'games#stand'
   resources :users
   resources :game_sessions
-  resources :games
+  resources :games 
+
 end

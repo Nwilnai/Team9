@@ -59,6 +59,71 @@ class Game < ApplicationRecord
 		User.dealer
 	end
 
+    def dealer_hand
+		dealer.hand(self)
+	end
+
+    def game_is_done?
+		 return self.users.find { |u| value(u.hand(self)) >= 21 } 
+	end
+
+
+    def busted_users
+		self.users.find { |u| value(u.hand(self)) > 21 } 
+	end
+
+	def nonbusted_users
+		self.users.find { |u| value(u.hand(self)) <= 21 } 
+	end
+
+    def twentyone_users
+		self.users.find { |u| value(u.hand(self)) == 21 }
+	end
+
+    def who_won
+		winner = nil
+		if self.game_is_done? then
+			if busted_users 
+			    if twentyone_users 
+				    winner = twentyone_users
+                else
+                    winner = nonbusted_users
+			    end
+            else
+                if twentyone_users 
+				    winner = twentyone_users
+                end
+            end
+		end
+		return winner
+	end
+
+    def value(hand)
+        ace_count= 0
+        hand_total=0
+        #for every card in hand do
+        hand.each do |card|
+            if(card['value'].downcase == "ace" )
+                ace_count +=1
+            elsif(card['value'].to_i == 0)
+                hand_total+=10
+            else
+                hand_total+=card['value'].to_i
+            end
+        end
+        #if there are aces
+        if ace_count > 0
+            #add 1 to hand for every ace
+            hand_total += ace_count
+            #can the user afford to make aces count as 11?
+            while(hand_total +10 <= 21 && ace_count > 0)
+                hand_total+=10
+                ace_count-=1
+            end
+        end
+        return hand_total
+    end
+
     #lets you make a call to the api using a particular path. This is done because 
     #the uri dropped arguments in the path on occasion (particularly "count?="),
     #so we use the user provided path instead of a uri generated path.
@@ -81,4 +146,5 @@ class Game < ApplicationRecord
         #return parsed api response
         json_resp
       end
+      
 end
