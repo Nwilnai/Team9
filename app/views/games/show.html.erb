@@ -28,7 +28,8 @@
     
     <% victor= @game.who_won  %>
     <% if victor then %>
-		  The winner is: <%= @game.who_won.name %>
+		  The winner is: <%= victor.name %>
+      <% victor.update_attribute(:wins, victor.wins+1)%>
     <% else%>
       You both lost!
     <% end %>
