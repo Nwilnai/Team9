@@ -59,27 +59,29 @@ class Game < ApplicationRecord
 		User.dealer
 	end
 
+    #returns dealer's hand
     def dealer_hand
 		dealer.hand(self)
 	end
-
+    #game ends when one player has cards with value >=21
     def game_is_done?
 		 return self.users.find { |u| value(u.hand(self)) >= 21 } 
 	end
 
-
+    #returns user/s who are busted
     def busted_users
 		self.users.find { |u| value(u.hand(self)) > 21 } 
 	end
-
+    #returns user/s who are not busted
 	def nonbusted_users
 		self.users.find { |u| value(u.hand(self)) <= 21 } 
 	end
 
+    #returns user/s who have an exact hand value of 21
     def twentyone_users
 		self.users.find { |u| value(u.hand(self)) == 21 }
 	end
-
+    #returns who won the game.
     def who_won
 		winner = nil
 		if self.game_is_done? then
@@ -98,6 +100,11 @@ class Game < ApplicationRecord
 		return winner
 	end
 
+    #calculates the value of a hand. 
+    # any card with an integer value is worth that amount
+    # any titled card is worth 10 points (such as King, Queen, etc.)
+    # an ace can either be worth 1 or 11 points, whichever helps the user 
+    # get as close to 21 as possible
     def value(hand)
         ace_count= 0
         hand_total=0

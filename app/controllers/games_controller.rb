@@ -58,12 +58,8 @@ class GamesController < ApplicationController
     end
   end
 
-  def play
-    @user = current_user
-    @game = Game.find(params[:id])
-    redirect_to @game
-  end
-
+  #gives the user a card and has dealer act as any dealer would, 
+  #as per rules of blackjack
   def hit
     @user = current_user
     @game = Game.find(params[:id])
@@ -71,16 +67,17 @@ class GamesController < ApplicationController
     if @game.dealer.dealer_hit?(@game) then
       @game.dealer.hit_me(@game)
     end
-    redirect_to :action => "play"
+    redirect_to @game
   end
-    
+  
+  #User stands, dealer acts according to rules for dealer
   def stand
     @user = current_user
     @game = Game.find(params[:id])
     if @game.dealer.dealer_hit?(@game) then
       @game.dealer.hit_me(@game)
     end
-    redirect_to :action => "play"
+    redirect_to @game
   end
 
   private
