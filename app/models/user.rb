@@ -75,4 +75,19 @@ class User < ApplicationRecord
     hand= result['piles']["userid"+self.id.to_s]['cards']
   end
 
+  #card looks like: 
+  #{"code"=>"AH", "image"=>"https://deckofcardsapi.com/static/img/AH.png", 
+  #"images"=>{"svg"=>"https://deckofcardsapi.com/static/img/AH.svg", 
+  #"png"=>"https://deckofcardsapi.com/static/img/AH.png"}, 
+  #"value"=>"ACE", "suit"=>"HEARTS"}
+  def hit_me(current_game)
+    card=current_game.draw_cards(1).first
+    path= '/api/deck/' + current_game.get_deck_id + '/pile/userid' + self.id.to_s + '/add/?cards=' + card['code']
+    make_API_call(path)
+  end
+
+  def dealer_hit?(game)
+		game.value(game.dealer.hand(game)) < 17
+	end
+
 end

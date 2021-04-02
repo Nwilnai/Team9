@@ -8,6 +8,8 @@ class GamesController < ApplicationController
 
   # GET /games/1 or /games/1.json
   def show
+    @game = Game.find(params[:id])
+    @user = current_user
   end
 
   # GET /games/new
@@ -54,6 +56,28 @@ class GamesController < ApplicationController
       format.html { redirect_to games_url, notice: "Game was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  #gives the user a card and has dealer act as any dealer would, 
+  #as per rules of blackjack
+  def hit
+    @user = current_user
+    @game = Game.find(params[:id])
+    @user.hit_me(@game)
+    if @game.dealer.dealer_hit?(@game) then
+      @game.dealer.hit_me(@game)
+    end
+    redirect_to @game
+  end
+  
+  #User stands, dealer acts according to rules for dealer
+  def stand
+    @user = current_user
+    @game = Game.find(params[:id])
+    if @game.dealer.dealer_hit?(@game) then
+      @game.dealer.hit_me(@game)
+    end
+    redirect_to @game
   end
 
   private
