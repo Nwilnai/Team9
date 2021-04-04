@@ -5,6 +5,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   def setup
     @admin     = users(:jared)
     @non_admin = users(:henry)
+    @user = users(:henry)
   end
 
   test "index including pagination" do
@@ -15,6 +16,7 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
     User.paginate(page: 1).each do |user|
       assert_select 'a[href=?]', user_path(user), text: user.name
     end
+  end
 
     test "index as admin including pagination and delete links" do
       log_in_as(@admin)

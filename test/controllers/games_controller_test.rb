@@ -23,10 +23,7 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to game_url(Game.last)
   end
 
-  test "should show game" do
-    get game_url(@game)
-    assert_response :success
-  end
+
 
   test "should get edit" do
     get edit_game_url(@game)

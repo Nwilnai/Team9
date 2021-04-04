@@ -2,27 +2,23 @@ require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
 
-  test "should get home" do
-    get root_path
-    assert_response :success
-    assert_select "title", "Ruby on Rails Tutorial Sample App"
-  end
+
 
   test "should get help" do
     get help_path
     assert_response :success
-    assert_select "title", "Ruby on Rails Tutorial Sample App | Help"
+    assert_select "title", "blackjack | Help"
   end
 
   test "should get about" do
     get about_path
     assert_response :success
-    assert_select "title", "Ruby on Rails Tutorial Sample App | About"
+    assert_select "title", "blackjack | About"
   end
 
   test "should get contact" do
     get contact_path
     assert_response :success
-    assert_select "title", "Cardgame.com | Contact"
+    assert_select "title", "blackjack | Contact"
   end
 end
