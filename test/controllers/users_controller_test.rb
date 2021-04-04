@@ -1,11 +1,12 @@
 require "test_helper"
 
-def setup
-  @user = users(:jared)
-  @other_user = users(:henry)
-end
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @user = users(:jared)
+    @other_user = users(:henry)
+  end
+  
   test "should get new" do
     get signup_path
     assert_response :success
@@ -28,7 +29,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     assert_redirected_to login_url
   end
-end
+
 
   test "should redirect edit when logged in as wrong user" do
     log_in_as(@other_user)
@@ -43,7 +44,6 @@ end
                                               email: @user.email } }
     assert flash.empty?
     assert_redirected_to root_url
-  end
   end
 
   test "should redirect destroy when not logged in" do
