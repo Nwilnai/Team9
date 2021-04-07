@@ -10,10 +10,10 @@ class ContactController < ApplicationController
       respond_to do |format|
         if @contact.deliver
           @contact = Contact.new
-          format.html { render 'index'}
+          format.html { render 'static_pages/home'}
           flash[:success] = "Thank you for your message. We will get back to you soon!"
         else
-          format.html { render 'index' }
+          format.html { render 'static_pages/home' }
           flash[:error] = "Message did not send. Please check the email you provided."
         end
       end
