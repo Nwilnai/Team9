@@ -38,19 +38,22 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 5em;
-  letter-spacing: -5px;
+  letter-spacing: 2px;
   margin-bottom: 30px;
   text-align: center;
   color: white;
+  font-family:'Trebuchet MS';
+  
 }
 
 h2 {
   font-size: 1.2em;
-  letter-spacing: -1px;
+  letter-spacing: 2px;
   margin-bottom: 30px;
   text-align: center;
   font-weight: normal;
   color: whitesmoke;
+  font-family: Georgia;
 }
 
 h3 {
@@ -69,6 +72,7 @@ h6 {
   margin-bottom: 30px;
   text-align: center;
   color: black;
+  font-family: Georgia;
 }
 
 p {
@@ -81,18 +85,55 @@ p {
 
 #logo {
   float: left;
-  margin-right: 10px;
-  font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  padding-top: 9px;
+  margin-right: 5px;
+  font-size: 4em;
+  color: black;
+  //text-transform: lowercase;
+  font-family: Georgia;
+  letter-spacing: 3px;
+  padding-top: 40px;
   font-weight: bold;
   a:link, a:visited, a:hover {
     color: white;
     text-decoration: none;
   }
 }
+
+#smallerlogo {
+  float: left;
+  margin-right: 5px;
+  font-size: 1em;
+  color: white;
+  //text-transform: lowercase;
+  font-family: Georgia;
+  letter-spacing: 3px;
+  padding-top: 50px;
+  font-weight: bold;
+  a:link, a:visited, a:hover {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+#heading{
+  float: right;
+  margin-right: 5px;
+  font-size: 1.5em;
+  font-family: Georgia;
+  color: black;
+  letter-spacing: 1px;
+  padding-top: 30px;
+  
+  a:link, a:visited, a:hover {
+    color: red;
+    text-decoration: none;
+  }
+}
+
+.navbar-custom {
+  background-color: rgb(37, 172, 37);
+}
+
 
 
 
@@ -233,11 +274,19 @@ input {
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-background-image: url('https://cdn.hswstatic.com/gif/how-to-play-blackjack-lead.jpg');
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-font-family: 'Numans', sans-serif;
+  background-image: url('https://cdn.hswstatic.com/gif/how-to-play-blackjack-lead.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 0%;
+  font-family: 'Numans', sans-serif;
+}
+
+#example1 {
+  background-image: url('https://cdn.hswstatic.com/gif/how-to-play-blackjack-lead.jpg');
+
+  background: url(mountain.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .container{
@@ -318,4 +367,14 @@ color: white;
 margin-left: 4px;
 }
 }
+
+label {
+  cursor: pointer;
+  color: white;
+  display: block;
+  padding: 10px;
+  size: 20px;
+  margin: 3px;
+}
+
 }
