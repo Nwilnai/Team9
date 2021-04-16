@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get   '/login',   to: 'sessions#new'
   post  '/login',   to: 'sessions#create'
   delete'/logout',  to: 'sessions#destroy'
-  get   '/games/:id/hit',    to: 'games#hit'
-  get   '/games/:id/stand',    to: 'games#stand'
+  get   '/games/:id/hit',    to: 'games#hit', as: 'hit'
+  get   '/games/:id/stand',    to: 'games#stand', as: 'stand'
   resources :contact, only: [:index, :new, :create]
   resources :users
   resources :game_sessions

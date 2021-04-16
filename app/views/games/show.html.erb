@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
-<h1 style="color:black;"> PLAY! </h1>
+
+<% if @game.game_is_done? then %>
+  <% @game.finish_dealer_hand %>
+<% end %>
 
 <table class="table">
   <thead>
@@ -15,13 +18,16 @@
         <% user.hand(@game).each do |card|%>
         <td><%= image_tag card['image'] %></td>
         <% end%>
+        <%#add clause checking if user has "stand"ed already %>
+        <% if (user.name.downcase == "dealer" && current_user.has_stood == false && @game.game_is_done? == false) %>
+         <td> <%= image_tag "BackOfRedCard.png" , size: "233x320" %> </td>
+        <% end %>
         <td><%= user.name %>'s hands value: <%= @game.value(user.hand(@game)) %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<% @game.who_won%>
 <% if @game.game_is_done? then %>
 	<p> 
 		The game is done!
@@ -30,17 +36,22 @@
     <% if victor then %>
 		  The winner is: <%= victor.name %>
       <% victor.update_attribute(:wins, victor.wins+1)%>
+      <% victor.update_attribute(:tokens, 5)%>
     <% else%>
       You both lost!
     <% end %>
 	</p>
-  <%= link_to "Play a new Game!", new_game_session_path, class: "btn btn-lg btn-success"%>
+  <%= link_to "Play a new Game!", new_game_path, class: "btn btn-lg btn-success",  data: { disable_with: 'loading...' }%>
 
 <% else %>
 	<p> <%= @user.name %>, will you: </p>
-	<ul>
-	<button type="button" class="btn btn-primary btn-lg"><%= link_to 'Hit!', :controller => :games, :action => :hit %> </button>
-	<button type="button" class="btn btn-secondary btn-lg"><%= link_to 'Stand!', :controller => :games, :action => :stand %> </button>
-	</ul>
+  <ul>
+  	<button type="button" class="btn btn-primary btn-lg">
+    <%= link_to "Hit", hit_path, :method => :get,  data: { disable_with: 'loading...' } %>
+    </button>
+    <button type="button" class="btn btn-secondary btn-lg">
+    <%= link_to "Stand", stand_path, :method => :get,  data: { disable_with: 'loading...' } %>
+    </button>
+  </ul>
 <% end %>
 

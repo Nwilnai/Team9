@@ -10,8 +10,8 @@ class Game < ApplicationRecord
     #NOTE: USER PILES ALWAYS LOOK LIKE: userid<user_id>
     #such that a user with an id of 5 will have a pile: userid5
     def init_game
-		self.users << User.dealer
         for user in self.users
+            user.update_attribute(:has_stood, false)
             #draw 2 cards per user
             cards=draw_cards(2)
             #grab all card codes, seperated by commas
@@ -25,7 +25,13 @@ class Game < ApplicationRecord
             path= '/api/deck/' + self.get_deck_id + '/pile/userid' + user.id.to_s + '/add/?cards='+cardcodes
             make_API_call(path)
         end
+        self.users << User.dealer
+        User.dealer.hit_me(self)
 	end
+
+    def add_user(user)
+        self.users << user
+    end
 
     #initializes the deck for this game by making initializing call to api
     def init_deck_id
@@ -63,37 +69,47 @@ class Game < ApplicationRecord
     def dealer_hand
 		dealer.hand(self)
 	end
+
+    def finish_dealer_hand
+        while (dealer.dealer_hit?(self))
+            dealer.hit_me(self)
+        end
+    end
+
     #game ends when one player has cards with value >=21
+    #or a user has stood
     def game_is_done?
-		 return self.users.find { |u| value(u.hand(self)) >= 21 } 
+		 return self.users.find { |u| value(u.hand(self)) >= 21 } ||  (self.users.find { |u| u.has_stood == true }) != nil
 	end
 
-    #returns user/s who are busted
+    #returns a user who is busted. can change to multiple results via "find_all"
     def busted_users
 		self.users.find { |u| value(u.hand(self)) > 21 } 
 	end
-    #returns user/s who are not busted
+    #returns a user who is not busted. can change to multiple results via "find_all"
 	def nonbusted_users
 		self.users.find { |u| value(u.hand(self)) <= 21 } 
 	end
 
-    #returns user/s who have an exact hand value of 21
+    #returnsa  user who has an exact hand value of 21. can change to multiple results via "find_all"
     def twentyone_users
-		self.users.find { |u| value(u.hand(self)) == 21 }
+		self.users.find{ |u| value(u.hand(self)) == 21 }
 	end
     #returns who won the game.
     def who_won
 		winner = nil
 		if self.game_is_done? then
-			if busted_users 
-			    if twentyone_users 
-				    winner = twentyone_users
-                else
-                    winner = nonbusted_users
-			    end
-            else
-                if twentyone_users 
-				    winner = twentyone_users
+            twentyone_user = twentyone_users
+			if (twentyone_user )
+                winner = twentyone_user 
+            elsif (nonbusted_users)
+                highest=0
+                for user in self.users
+                    hand_value = value(user.hand(self))
+                    if hand_value > highest && hand_value < 22
+                        highest = hand_value
+                        winner=user
+                    end
                 end
             end
 		end
