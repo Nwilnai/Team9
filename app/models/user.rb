@@ -67,6 +67,10 @@ class User < ApplicationRecord
 		User.find_by_name( "dealer") || User.create( :name => "dealer", :email => "dealer@dealer.com", :password => "dealer" )
 	end
 
+  def has_stood?
+    self.has_stood
+  end
+  
   #show this user's hand via call to API
   def hand(current_game)
     #make call with deck id and player inserted in and return only the current players hand

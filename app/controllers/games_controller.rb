@@ -64,19 +64,14 @@ class GamesController < ApplicationController
     @user = current_user
     @game = Game.find(params[:id])
     @user.hit_me(@game)
-    if @game.dealer.dealer_hit?(@game) then
-      @game.dealer.hit_me(@game)
-    end
     redirect_to @game
   end
   
   #User stands, dealer acts according to rules for dealer
   def stand
     @user = current_user
+    @user.update_attribute(:has_stood, true)
     @game = Game.find(params[:id])
-    if @game.dealer.dealer_hit?(@game) then
-      @game.dealer.hit_me(@game)
-    end
     redirect_to @game
   end
 
