@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.save
       reset_session
       log_in @user 
-  flash[:success] = "Welcome to blackjack"
+  flash[:success] = "Success! Welcome to blackjack"
       redirect_to @user
     else
       render 'new'
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      flash[:success] = "Profile updated"
+      flash[:success] = "Success! Profile updated"
       redirect_to @user
     else
       render 'edit'

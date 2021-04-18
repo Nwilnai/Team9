@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       reset_session
       remember user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      flash.now[:danger] = 'Success! You are logged in'
       log_in user
       redirect_to forwarding_url || user
     else
