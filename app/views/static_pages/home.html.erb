@@ -2,15 +2,39 @@
 <div class="center">
 <br>
   <h1>Welcome to online blackjack</h1>
-   <h2>
-    Welcome to the home page.
-  </h2>
+  
   <% if logged_in?%>
-    <%= link_to "Play a new Game!", new_game_path, class: "btn btn-lg btn-success",  data: { disable_with: 'loading...' }%>
+    <h2>You're logged in.<h2>
+    <%= link_to "Play a Game!", new_game_path, class: "btn btn-lg btn-success"%>
+    <br> <br>
+    <%= link_to "View your profile", current_user, class: "btn btn-lg btn-primary"%>
+    
   <%else%>
-    <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-success",  data: { disable_with: 'loading...' } %>
-  <%end%>
+  <h2>Log in below! </h2>
+ <div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
+
+      <%= f.label :email, class: 'label' %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password, class: 'label' %>
+      <%= f.password_field :password, class: 'form-control' %>
+      
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me %>
+          <span>Remember me</span>
+        <% end %>
+
+      <%= f.submit "Log in", class: "btn btn-lg btn-success" %>
+      <h2>or </h2>
+       <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary"%>
+    <% end %>
+
+    
+  </div>
+</div>
+   <%end%>
    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 </div>
-
