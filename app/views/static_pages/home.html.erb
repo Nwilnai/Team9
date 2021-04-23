@@ -9,6 +9,7 @@
     <br> <br>
     <%= link_to "View your profile", current_user, class: "btn btn-lg btn-primary"%>
     
+    
   <%else%>
   <h2>Log in below! </h2>
  <div class="row">
@@ -21,7 +22,7 @@
       <%= f.label :password, class: 'label' %>
       <%= f.password_field :password, class: 'form-control' %>
       
-      <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.label :remember_me, class: 'label' do %>
           <%= f.check_box :remember_me %>
           <span>Remember me</span>
         <% end %>

@@ -5,56 +5,50 @@
 <% end %>
 
 <% if @game.game_is_done? then %>
+    <% if @game.is_game_done == false%>
+       <% current_user.update_attribute(:tokens, current_user.tokens - @user_bet.to_i) %>
+    <% end %>
     <% victor= @game.who_won  %>
     <% if victor==current_user%>
 		  <h5> You won! <h5>
       <h4> You now have x <% current_user.tokens%> tokens <h4>
       <% if @game.is_game_done == false%>
         <% @game.update_attribute(:is_game_done, true)%>
-        <%#victor.update_attribute(:tokens, (2 * victor.amount_bet) + victor.tokens)%>
+        <% victor.update_attribute(:tokens, (2 * victor.amount_bet) + victor.tokens)%>
         <% victor.update_attribute(:wins, victor.wins+1)%>
       <%end%>
     <% elsif victor%>
       <h5> You lost to the dealer <h5>
-      <h4> You still have x <% current_user.tokens%> tokens remaining<h4>
+      <h4> You still have <%= current_user.tokens%> tokens remaining<h4>
+      <br>
     <% else%>
-      <h5>You both lost!<h5>
+      <h5>You both lost<h5>
     <% end %>
-    <%= link_to "Play again!", new_game_path, class: "btn btn-lg btn-success",  data: { disable_with: 'loading...' }%>
+    <%= link_to "Play again!", new_game_path, class: "btn btn-lg btn-default", data: { disable_with: 'loading...' }%>
     <br>
 <%end%>
-	
-
 
   <% if !@game.game_is_done? then %>
-      &emsp;
-      &emsp;
-      &emsp;
-      &emsp;
-      &emsp;
-       <button type="button" class="btn btn-success btn-lg">
-        <%= link_to "Hit", hit_path, :method => :get,  data: { disable_with: 'loading...' } %>
-      </button>
-      &emsp;
-      &emsp;
-      &emsp;
-        <button type="button" class="btn btn-primary btn-lg">
-        <%= link_to "Stand", stand_path, :method => :get,  data: { disable_with: 'loading...' } %>
-        </button>
-        <br> <br> <br>
+      <h5>Bet:50 <h5>
+      <%= link_to "Hit", hit_path, :method => :get,  data: { disable_with: 'loading...' },  class: "btn btn-success btn-lg" %>
+     
+      <%= link_to "Stand", stand_path, :method => :get,  data: { disable_with: 'loading...' }, class: "btn btn-danger btn-lg" %>
   <% end %>
 
+
   <% @game.users.order(:name).each do |user| %>
-      <tr>
-      <h6> <%=user.name %>: <%= @game.value(user.hand(@game))%><h6>
+      
+      <h4> <%=user.name %>: <h4>
+      <h5><%= @game.value(user.hand(@game))%><h5>
       <% user.hand(@game).each do |card|%>
-        <%= image_tag card['image'] %>
+        <%= image_tag card['image'], size: "182x250" %>
       <% end%>
       <%#add clause checking if user has "stand"ed already %>
       <% if (user.name.downcase == "dealer" && current_user.has_stood == false && @game.game_is_done? == false) %>
-        <%= image_tag "BackOfRedCard.png" , size: "233x320" %> 
+        <%= image_tag "BackOfRedCard.png" , size: "182x250" %> 
       <% end %>
-      </tr>        
+     
+            
   <% end %>
   
 
