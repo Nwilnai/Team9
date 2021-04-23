@@ -9,8 +9,11 @@
     <% if victor==current_user%>
 		  <h5> You won! <h5>
       <h4> You now have x <% current_user.tokens%> tokens <h4>
-      <% victor.update_attribute(:wins, victor.wins+1)%>
-      <% victor.update_attribute(:tokens, 5)%>
+      <% if @game.is_game_done == false%>
+        <% @game.update_attribute(:is_game_done, true)%>
+        <%#victor.update_attribute(:tokens, (2 * victor.amount_bet) + victor.tokens)%>
+        <% victor.update_attribute(:wins, victor.wins+1)%>
+      <%end%>
     <% elsif victor%>
       <h5> You lost to the dealer <h5>
       <h4> You still have x <% current_user.tokens%> tokens remaining<h4>

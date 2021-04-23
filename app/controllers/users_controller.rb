@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.update_attribute(:tokens, 500) #added line to users to give them 500 tokens on start
       reset_session
       log_in @user 
   flash[:success] = "Success! Welcome to blackjack"

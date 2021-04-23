@@ -13,8 +13,9 @@
               <li><%= link_to "Profile", current_user, id: "heading"  %></li>
              
               <li class="divider"></li>
-              <li>
-                <%= link_to "Log out", logout_path, method: :delete, id: "heading"  %>
+              <li> 
+                <%= link_to "Log out", logout_path, id: "heading"  %>
+              </li>
               
         <% else %>
           <li><%= link_to "Sign up", signup_path, id: "heading" %></li>
