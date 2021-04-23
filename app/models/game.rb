@@ -11,6 +11,7 @@ class Game < ApplicationRecord
     #such that a user with an id of 5 will have a pile: userid5
     def init_game
         for user in self.users
+#here we update attribute for the bet_amount and subtract from tokens attribute
             user.update_attribute(:has_stood, false)
             #draw 2 cards per user
             cards=draw_cards(2)
