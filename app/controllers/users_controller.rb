@@ -47,6 +47,16 @@ class UsersController < ApplicationController
       render 'edit'
   end
     end
+  
+  def add_tokens
+    if current_user.tokens >= 100
+      flash[:danger] = "Sorry, but you already have a sufficient amount of tokens!"
+    else
+      current_user.update_attribute(:tokens, current_user.tokens + 100)
+      flash[:success] = "Success! 100 tokens were added to your account!"
+    end
+    redirect_to current_user
+  end
 
   private
 
@@ -76,4 +86,5 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
     end
+
 end

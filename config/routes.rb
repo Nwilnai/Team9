@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   get   '/home',    to: 'static_pages#home'
   get   '/help',    to: 'static_pages#help'
   get   '/about',   to: 'static_pages#about'
+  get   '/store',   to: 'static_pages#store'
   get   '/signup',  to: 'users#new'
   get   '/login',   to: 'sessions#new'
   post  '/login',   to: 'sessions#create'
   get '/logout',  to: 'sessions#destroy'
   get '/bet', to: 'games#bet'
+  get 'users/add_tokens', to: 'users#add_tokens'
   get   '/games/:id/hit',    to: 'games#hit', as: 'hit'
   get   '/games/:id/stand',    to: 'games#stand', as: 'stand'
   resources :contact, only: [:index, :new, :create]
