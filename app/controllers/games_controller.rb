@@ -10,11 +10,18 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @user = current_user
+    @user_bet = @user.bet_amount
   end
 
   # GET /games/new
   def new
     @game = Game.new
+    GameSession.create(user_id: current_user.id, game_id: @game.id ) 
+    @game.add_user(current_user)
+    @game.init_game
+    @user_bet = params[:q]
+    current_user.update_attribute(:bet_amount, @user_bet)
+    redirect_to @game
   end
 
   # GET /games/1/edit
