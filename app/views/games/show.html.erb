@@ -11,10 +11,10 @@
     <% victor= @game.who_won  %>
     <% if victor==current_user%>
 		  <h5> You won! <h5>
-      <h4> You now have x <% current_user.tokens%> tokens <h4>
+      <h4> You now have <%= current_user.tokens%> tokens <h4>
       <% if @game.is_game_done == false%>
         <% @game.update_attribute(:is_game_done, true)%>
-        <% victor.update_attribute(:tokens, (2 * victor.amount_bet) + victor.tokens)%>
+        <% victor.update_attribute(:tokens, (2 * victor.bet_amount) + victor.tokens)%>
         <% victor.update_attribute(:wins, victor.wins+1)%>
       <%end%>
     <% elsif victor%>
@@ -24,12 +24,12 @@
     <% else%>
       <h5>You both lost<h5>
     <% end %>
-    <%= link_to "Play again!", new_game_path, class: "btn btn-lg btn-default", data: { disable_with: 'loading...' }%>
+    <%= link_to "Play again!", '/bet', class: "btn btn-lg btn-default", data: { disable_with: 'loading...' }%>
     <br>
 <%end%>
 
   <% if !@game.game_is_done? then %>
-      <h5>Bet:50 <h5>
+      <h5>Bet: <%= @user_bet%><h5>
       <%= link_to "Hit", hit_path, :method => :get,  data: { disable_with: 'loading...' },  class: "btn btn-success btn-lg" %>
      
       <%= link_to "Stand", stand_path, :method => :get,  data: { disable_with: 'loading...' }, class: "btn btn-danger btn-lg" %>
