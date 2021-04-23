@@ -5,7 +5,7 @@
   
   <% if logged_in?%>
     <h2>You're logged in.<h2>
-    <%= link_to "Play a Game!", new_game_path, class: "btn btn-lg btn-success"%>
+    <%= link_to "Play a Game!",  '/bet', class: "btn btn-lg btn-success"%>
     <br> <br>
     <%= link_to "View your profile", current_user, class: "btn btn-lg btn-primary"%>
     
