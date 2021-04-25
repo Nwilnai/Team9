@@ -94,4 +94,11 @@ class User < ApplicationRecord
 		game.value(game.dealer.hand(game)) < 17
 	end
 
+  def update_tokens(token_amount)
+    self.update_attribute(:tokens, self.tokens + token_amount)
+  end
+  
+  def increment_wins
+    self.update_attribute(:wins, self.wins+1)
+  end
 end

@@ -79,7 +79,7 @@ class Game < ApplicationRecord
 
     #game ends when one player has cards with value >=21
     #or a user has stood
-    def game_is_done?
+    def is_round_over?
 		 return self.users.find { |u| value(u.hand(self)) >= 21 } ||  (self.users.find { |u| u.has_stood == true }) != nil
 	end
 
@@ -99,7 +99,7 @@ class Game < ApplicationRecord
     #returns who won the game.
     def who_won
 		winner = nil
-		if self.game_is_done? then
+		if self.is_round_over? then
             twentyone_user = twentyone_users
 			if (twentyone_user )
                 winner = twentyone_user 
@@ -171,4 +171,7 @@ class Game < ApplicationRecord
         json_resp
       end
       
+      def make_game_done
+        self.update_attribute(:is_game_done, true)
+      end
 end
