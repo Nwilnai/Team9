@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
-<% if @game.game_is_done? then %>
+<% if @game.is_round_over? then %>
   <% @game.finish_dealer_hand %>
 <% end %>
 
-<% if @game.game_is_done? then %>
+<% if @game.is_round_over? then %>
     <% if @game.is_game_done == false%>
-       <% current_user.update_attribute(:tokens, current_user.tokens - @user_bet.to_i) %>
+       <% current_user.update_tokens(-@user_bet.to_i) %>
     <% end %>
     <% victor= @game.who_won  %>
     <% if victor==current_user%>
 		  <h5> You won! <h5>
       <h4> You now have <%= current_user.tokens%> tokens <h4>
       <% if @game.is_game_done == false%>
-        <% @game.update_attribute(:is_game_done, true)%>
-        <% victor.update_attribute(:tokens, (2 * victor.bet_amount) + victor.tokens)%>
-        <% victor.update_attribute(:wins, victor.wins+1)%>
+        <% @game.make_game_done %>
+        <% victor.update_tokens(2 * victor.bet_amount)%>
+        <% victor.increment_wins%>
       <%end%>
     <% elsif victor%>
       <h5> You lost to the dealer <h5>
@@ -28,7 +28,7 @@
     <br>
 <%end%>
 
-  <% if !@game.game_is_done? then %>
+  <% if !@game.is_round_over? then %>
       <h5>Bet: <%= @user_bet%><h5>
       <%= link_to "Hit", hit_path, :method => :get,  data: { disable_with: 'loading...' },  class: "btn btn-success btn-lg" %>
      
@@ -44,7 +44,7 @@
         <%= image_tag card['image'], size: "182x250" %>
       <% end%>
       <%#add clause checking if user has "stand"ed already %>
-      <% if (user.name.downcase == "dealer" && current_user.has_stood == false && @game.game_is_done? == false) %>
+      <% if (user.name.downcase == "dealer" && current_user.has_stood == false && @game.is_round_over? == false) %>
         <%= image_tag "BackOfRedCard.png" , size: "182x250" %> 
       <% end %>
      
