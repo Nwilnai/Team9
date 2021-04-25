@@ -10,11 +10,6 @@ class GamesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_game_url
-    assert_response :success
-  end
-
   test "should create game" do
     assert_difference('Game.count') do
       post games_url, params: { game: {  } }

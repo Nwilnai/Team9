@@ -3,9 +3,7 @@
 one:
   user_id: 1
   game_id: 1
-  currently_playing: false
 
 two:
   user_id: 1
   game_id: 1
-  currently_playing: false

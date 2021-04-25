@@ -14,7 +14,6 @@ class GameSessionsTest < ApplicationSystemTestCase
     visit game_sessions_url
     click_on "New Game Session"
 
-    check "Currently playing" if @game_session.currently_playing
     fill_in "Game", with: @game_session.game_id
     fill_in "User", with: @game_session.user_id
     click_on "Create Game session"
@@ -27,7 +26,6 @@ class GameSessionsTest < ApplicationSystemTestCase
     visit game_sessions_url
     click_on "Edit", match: :first
 
-    check "Currently playing" if @game_session.currently_playing
     fill_in "Game", with: @game_session.game_id
     fill_in "User", with: @game_session.user_id
     click_on "Update Game session"
