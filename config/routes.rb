@@ -13,11 +13,10 @@ Rails.application.routes.draw do
   get '/logout',  to: 'sessions#destroy'
   get '/bet', to: 'games#bet'
   get 'users/add_tokens', to: 'users#add_tokens'
-  get   '/games/:id/hit',    to: 'games#hit', as: 'hit'
-  get   '/games/:id/stand',    to: 'games#stand', as: 'stand'
-  resources :contact, only: [:index, :new, :create]
+  get   '/games/:id/hit', to: 'games#hit', as: 'hit'
+  get   '/games/:id/stand', to: 'games#stand', as: 'stand'
+  resources :contact, only: %i[index new create]
   resources :users
   resources :game_sessions
-  resources :games 
-
+  resources :games
 end

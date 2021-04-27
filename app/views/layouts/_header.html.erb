@@ -1,28 +1,31 @@
 <header class="navbar navbar-fixed-top navbar-dark navbar-custom">
-  <div class="container-fluid">
+ <div class="container-fluid">
     <ul>
-        
         <%= link_to "blackjack", root_path, id: "logo" %>
-        <%= link_to "by Nathaniel, Henry & Jared", root_path, id: "smallerlogo" %>
     </ul>
-    <nav class="navbar">
+    <br>
+      <h1 style="text-align: left; font-size: 1.2em; margin-top: 20px; margin-bottom: -120px"; > by Nathaniel, Henry & Jared<h1>
+      <% if logged_in? %>
+      <h1 style="font-size: 3.0em; margin-top: 90px; margin-bottom: -120px; text-align: center;" > Tokens: <%= current_user.tokens%> <h1>
+      <%end%>
+  <div>
+<nav class="navbar">
       <ul class="nav navbar-nav navbar-right">
         
         <li><%= link_to "Home", root_path, id: "heading" %></li>
         <% if logged_in? %>
-          
               <li><%= link_to "Profile", current_user, id: "heading"  %></li>
               <li><%= link_to "Store", store_path, id: "heading"%></li>
               <li class="divider"></li>
               <li> 
                 <%= link_to "Log out", logout_path, id: "heading"  %>
-              </li>
-              
+              </li>    
         <% else %>
           <li><%= link_to "Sign up", signup_path, id: "heading" %></li>
           <li><%= link_to "Log in", root_path, id: "heading" %></li>
 
         <% end %>
     </nav>
-  </div>
+
+ 
 </header>
