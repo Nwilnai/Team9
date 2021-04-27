@@ -71,6 +71,9 @@ class Game < ApplicationRecord
     dealer.hand(self)
   end
 
+  def finish_dealer_hand
+    dealer.hit_me(self) while dealer.dealer_hit?(self)
+  end
     #game ends when one player has cards with value >=21
     #or a user has stood
     def is_round_over?
