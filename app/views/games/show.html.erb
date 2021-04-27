@@ -5,22 +5,23 @@
 <% end %>
 
 <% if @game.is_round_over? then %>
-    <% if @game.is_game_done == false%>
-       <% current_user.update_tokens(-@user_bet.to_i) %>
-    <% end %>
     <% victor= @game.who_won  %>
     <% if victor==current_user%>
-		  <h5> You won! <h5>
-      <h4> You now have <%= current_user.tokens%> tokens <h4>
       <% if @game.is_game_done == false%>
         <% @game.make_game_done %>
-        <% victor.update_tokens(2 * victor.bet_amount)%>
+        <% victor.update_tokens(@user_bet.to_i)%>
         <% victor.increment_wins%>
+        <h5> You won! <h5>
+      <h4> You now have <%= victor.tokens%> tokens <h4>
       <%end%>
     <% elsif victor%>
+      <% if @game.is_game_done == false%>
+        <% @game.make_game_done %>
+        <% current_user.update_tokens(-1*@user_bet.to_i)%>
       <h5> You lost to the dealer <h5>
       <h4> You still have <%= current_user.tokens%> tokens remaining<h4>
       <br>
+      <% end%>
     <% else%>
       <h5>You both lost<h5>
     <% end %>
