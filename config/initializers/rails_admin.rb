@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-  config.main_app_name = ["blackjack"]
+  config.main_app_name = ['blackjack']
   ### Popular gems integration
 
   ## == Devise ==

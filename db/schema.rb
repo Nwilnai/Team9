@@ -10,38 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_22_234136) do
-
+ActiveRecord::Schema.define(version: 20_210_422_234_136) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension 'plpgsql'
 
-  create_table "game_sessions", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "game_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table 'game_sessions', force: :cascade do |t|
+    t.integer 'user_id'
+    t.integer 'game_id'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "games", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "deck_id"
-    t.boolean "is_game_done", default: false
+  create_table 'games', force: :cascade do |t|
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'deck_id'
+    t.boolean 'is_game_done', default: false
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "password_digest"
-    t.string "remember_digest"
-    t.boolean "admin", default: false
-    t.integer "wins", default: 0
-    t.boolean "has_stood"
-    t.integer "tokens"
-    t.integer "bet_amount", default: 0
-    t.index ["email"], name: "index_users_on_email", unique: true
+  create_table 'users', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'password_digest'
+    t.string 'remember_digest'
+    t.boolean 'admin', default: false
+    t.integer 'wins', default: 0
+    t.boolean 'has_stood'
+    t.integer 'tokens'
+    t.integer 'bet_amount', default: 0
+    t.index ['email'], name: 'index_users_on_email', unique: true
   end
-
 end

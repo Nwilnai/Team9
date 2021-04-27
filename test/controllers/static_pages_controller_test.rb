@@ -1,19 +1,15 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
-
-
-
-  test "should get help" do
+  test 'should get help' do
     get help_path
     assert_response :success
-    assert_select "title", "blackjack"
+    assert_select 'title', 'blackjack'
   end
 
-  test "should get about" do
+  test 'should get about' do
     get about_path
     assert_response :success
-    assert_select "title", "blackjack"
+    assert_select 'title', 'blackjack'
   end
-
 end
