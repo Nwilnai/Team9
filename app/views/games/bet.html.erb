@@ -1,4 +1,20 @@
-<%= form_tag "/games/new", method: 'get' %> 
-  <%= label_tag(:q, "Input Bet:") %>
-  <%= number_field_tag :q, 10, min: 10, max: current_user.tokens %> 
-  <%= submit_tag("Play!") %>
+<div class="betting">
+  <% if current_user.tokens==0 %>
+      <h1 style="font-size: 50px; margin-bottom: -50px;"> You have no more coins! Go to store <h1>
+      <%= link_to "Store!", store_path, class: "btn btn-lg btn-success"%>
+  <%else%>
+  <%= form_tag "/games/new", method: 'get' %>
+  <br>
+  <%= label_tag(:q, "Input your desired bet amount:") %>
+  <br>
+  <div>
+  <div class = "play">
+
+  <%= number_field_tag :q, 10, min: 10, max: current_user.tokens %>  
+    <%= submit_tag("Play!") %>
+    <br><br>
+    <div>
+  
+<div>
+<div>
+<%end%>

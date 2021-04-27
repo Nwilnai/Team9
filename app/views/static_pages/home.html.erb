@@ -7,7 +7,8 @@
     <h2>You're logged in.<h2>
     <%= link_to "Play a Game!",  '/bet', class: "btn btn-lg btn-success"%>
     <br> <br>
-    <%= link_to "View your profile", current_user, class: "btn btn-lg btn-primary"%>
+    
+     <%= link_to "View your profile", current_user, class: "btn btn-lg btn-primary" %>
     
     
   <%else%>
@@ -21,11 +22,12 @@
 
       <%= f.label :password, class: 'label' %>
       <%= f.password_field :password, class: 'form-control' %>
-      
-      <%= f.label :remember_me, class: 'label' do %>
-          <%= f.check_box :remember_me %>
-          <span>Remember me</span>
-        <% end %>
+ 
+      <%= f.label :remember_me, class: "checkbox inline" do %>
+        <%= f.check_box :remember_me %>
+        <span>Remember me </span>
+      <% end %>
+
 
       <%= f.submit "Log in", class: "btn btn-lg btn-success" %>
       <h2>or </h2>

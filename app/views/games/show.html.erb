@@ -20,13 +20,15 @@
         <% @game.make_game_done %>
         <% current_user.update_tokens(-1*@user_bet.to_i)%>
       <h5> You lost to the dealer <h5>
-      <h4> You still have <%= current_user.tokens%> tokens remaining<h4>
+      <h4 style="text-align: center;" > You still have <%= current_user.tokens%> tokens remaining<h4>
       <br>
       <% end%>
     <% else%>
       <h5>You both lost<h5>
+      <h4 style="text-align: center;" > You still have <%= current_user.tokens%> tokens remaining<h4>
     <% end %>
-    <%= link_to "Play again!", '/bet', class: "btn btn-lg btn-default", data: { disable_with: 'loading...' }%>
+    
+      <%= link_to "Play again!", '/bet', class: "btn btn-lg btn-success", data: { disable_with: 'loading...' }%>
     <br>
 <%end%>
 
@@ -41,7 +43,7 @@
   <% @game.users.order(:name).each do |user| %>
       
       <h4> <%=user.name %>: <h4>
-      <h5><%= @game.value(user.hand(@game))%><h5>
+      <h5 style="margin-bottom:50px;margin-top:-80px;color: black;"><%= @game.value(user.hand(@game))%><h5>
       <% user.hand(@game).each do |card|%>
         <%= image_tag card['image'], size: "182x250" %>
       <% end%>
