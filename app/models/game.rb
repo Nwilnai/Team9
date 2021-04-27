@@ -107,12 +107,12 @@ class Game < ApplicationRecord
                 highest=0
                 for user in self.users
                     hand_value = value(user.hand(self))
+                    if hand_value == highest && hand_value < 22
+                        return 'tie'
+                    end
                     if hand_value > highest && hand_value < 22
                         highest = hand_value
                         winner=user
-                    end
-                    if hand_value == highest && hand_value < 22
-                        return 'tie'
                     end
                 end
             end
