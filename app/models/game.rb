@@ -111,6 +111,9 @@ class Game < ApplicationRecord
                         highest = hand_value
                         winner=user
                     end
+                    if hand_value == highest && hand_value < 22
+                        return 'tie'
+                    end
                 end
             end
 		end

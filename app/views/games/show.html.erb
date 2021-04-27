@@ -6,7 +6,11 @@
 
 <% if @game.is_round_over? then %>
     <% victor= @game.who_won  %>
-    <% if victor==current_user%>
+    <% if victor == 'tie'%>
+      <h5> It was a tie! <h5>
+      <h4> You still have <%= current_user.tokens%> tokens remaining<h4>
+      <br>
+    <% elsif victor==current_user%>
       <% if @game.is_game_done == false%>
         <% @game.make_game_done %>
         <% victor.update_tokens(@user_bet.to_i)%>
