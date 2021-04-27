@@ -2,7 +2,7 @@ env:
   RUBY_VERSION: 2.7.2
   POSTGRES_USER: postgres
   POSTGRES_PASSWORD: admin
-  POSTGRES_DB: Team9
+  POSTGRES_DB: Team9_test
 
 name: Rails tests
 on: [push,pull_request]
