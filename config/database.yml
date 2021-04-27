@@ -58,7 +58,7 @@ development:
 test:
   <<: *default
   database: Team9_test
-    username: postgres
+  username: postgres
 
   # The password associated with the postgres role (username).
   password: admin
