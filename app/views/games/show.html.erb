@@ -16,38 +16,38 @@
         <% victor.update_tokens(@user_bet.to_i)%>
         <% victor.increment_wins%>
         <h5> You won! <h5>
-      <h4> You now have <%= victor.tokens%> tokens <h4>
+      <h4 style = "text-align: center; margin-top: 40px;"> You now have <%= victor.tokens%> tokens <h4>
       <br>
       <%end%>
     <% elsif victor%>
       <% if @game.is_game_done == false%>
         <% @game.make_game_done %>
         <% current_user.update_tokens(-1*@user_bet.to_i)%>
-      <h5> You lost to the dealer <h5>
-      <h4 style="text-align: center;" > You still have <%= current_user.tokens%> tokens remaining<h4>
+        <h5> You lost to the dealer <h5>
+        <h4 style="text-align: center;margin-top: 70px;" > You have <%= current_user.tokens%> tokens remaining<h4>
       <br>
       <% end%>
     <% else%>
       <h5>You both lost<h5>
-      <h4 style="text-align: center;" > You still have <%= current_user.tokens%> tokens remaining<h4>
+      <h4 style="text-align: center;margin-top: 40px;" > You have <%= current_user.tokens%> tokens remaining<h4>
     <% end %>
-    
-      <%= link_to "Play again!", '/bet', class: "btn btn-lg btn-success", data: { disable_with: 'loading...' }%>
-    <br>
+    <div class="center">
+    <%= link_to "Play again!", '/bet', style: "text-align: center; font-size: 30px; color:white; margin-top: 20px; margin-bottom: 40px", class: "btn btn-lg btn-success", data: { disable_with: 'loading...' }%>
+  
 <%end%>
 
   <% if !@game.is_round_over? then %>
-      <h5>Bet: <%= @user_bet%><h5>
-      <%= link_to "Hit", hit_path, :method => :get,  data: { disable_with: 'loading...' },  class: "btn btn-success btn-lg" %>
+      <h5 style = "margin-bottom: 80px; margin-top: 20px; text-align: left;" >bet: <%= @user_bet%> tokens <h5>
+      <%= link_to "Hit", hit_path, :method => :get,  data: { disable_with: 'loading...' },  style: "font-size: 60px; margin-top:-80px", class: "btn btn-lg btn-success" %>
      
-      <%= link_to "Stand", stand_path, :method => :get,  data: { disable_with: 'loading...' }, class: "btn btn-danger btn-lg" %>
+      <%= link_to "Stand", stand_path, :method => :get,  data: { disable_with: 'loading...' }, style: "font-size: 60px; margin-top:-80px", class: "btn btn-lg btn-danger" %>
   <% end %>
 
 
   <% @game.users.order(:name).each do |user| %>
       
-      <h4> <%=user.name %>: <h4>
-      <h5 style="margin-bottom:50px;margin-top:-80px;color: black;"><%= @game.value(user.hand(@game))%><h5>
+      <h4 style ="font-size:50px"> <%=user.name %>: <h4>
+      <h5 style="margin-bottom:50px;margin-top:-80px;color: black;font-size:70px"><%= @game.value(user.hand(@game))%><h5>
       <% user.hand(@game).each do |card|%>
         <%= image_tag card['image'], size: "182x250" %>
       <% end%>

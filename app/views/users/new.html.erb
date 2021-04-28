@@ -2,7 +2,7 @@
 <div class="center">
   <br>
   <h2>Already a user? -->
-  <%= link_to "Log in", root_path, class: "btn btn-md btn-success"%>
+  <%= link_to "Log in", root_path, style: "color:white", class: "btn btn-md btn-success"%>
   <h2>
   <h1>Sign up</h1>
   <br>
@@ -23,9 +23,8 @@
       <%= f.label :password_confirmation, "Confirmation", class: "label" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-      <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <%= f.submit "Create my account", style: "margin-bottom: 280px; font-size: 40px", class: "btn btn-primary" %>
     <% end %>
   </div>
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+   
 </div>

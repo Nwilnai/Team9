@@ -3,20 +3,11 @@
 <br>
 <h1><%= @user.name %> </h1>
 <h2><%= @user.email %> </h2>
-<h2>tokens: <%= @user.tokens %></h2>
- <%= link_to "Play a Game!", '/bet', class: "btn btn-lg btn-success"%>
+<h2 style = "font-size: 30px; margin-bottom:50px;">tokens: <%= @user.tokens %></h2>
+
+ <%= link_to "Play a Game!", '/bet', style: "font-size: 30px; color:white;", class: "btn btn-lg btn-success"%>
  <br><br>
- <%= link_to "Settings", edit_user_path(current_user), class: "btn btn-md btn-primary" %>
-     
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h2>
-       
-      </h2>
-    </section>
-  </aside>
-</div>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+ <%= link_to "Settings", edit_user_path(current_user), style: "font-size: 20px; margin-bottom: 450px;", class: "btn btn-md btn-primary" %>
+
 
 

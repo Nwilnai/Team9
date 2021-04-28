@@ -2,10 +2,9 @@
 <div class="center">
 <br>
 <h1>Store</h1>
-<h2> Welcome to our blackjack store! You can get more tokens here.<h2>
+<h2> Welcome to our blackjack store! You can earn more tokens below.<h2>
 <p>
-<button type="button" class="btn btn-success btn-lg">
-    <%= link_to "Add Tokens", users_add_tokens_path, method: :get,  data: { disable_with: 'loading...' } %>
-</button>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<%= link_to "Add tokens!",  users_add_tokens_path, style: "margin-bottom: 500px;", method: :get,  data: { disable_with: 'loading...' }, class: "btn btn-lg btn-success"%>
+
 </p>
