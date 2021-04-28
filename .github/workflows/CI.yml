@@ -59,6 +59,10 @@ jobs:
           yarn install --frozen-lockfile
           gem install bundler
           bundler install
+      - name: Create database
+        run: |
+          bundler exec rails db:create RAILS_ENV=test
+          bundler exec rails db:migrate RAILS_ENV=test
       - name: Run tests
         env:
           DATABASE_URL: postgres://postgres:password@localhost:5432/test
