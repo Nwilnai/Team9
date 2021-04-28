@@ -5,7 +5,7 @@ env:
   RAILS_ENV: test
 
 name: Rails tests
-on: [push]
+on: 
 jobs:
   rspec-test:
     name: RSpec
