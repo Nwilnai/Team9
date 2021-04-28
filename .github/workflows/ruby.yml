@@ -26,7 +26,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
       - name: Install postgres client
         run: sudo apt-get install libpq-dev
-        name: Build assets
+      - name: Build assets
         run: bundler exec rails assets:precompile
       - name: Install dependencies
         run: |
