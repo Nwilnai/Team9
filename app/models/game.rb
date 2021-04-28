@@ -74,49 +74,50 @@ class Game < ApplicationRecord
   def finish_dealer_hand
     dealer.hit_me(self) while dealer.dealer_hit?(self)
   end
-    #game ends when one player has cards with value >=21
-    #or a user has stood
-    def is_round_over?
-		 return self.users.find { |u| value(u.hand(self)) >= 21 } ||  (self.users.find { |u| u.has_stood == true }) != nil
-	end
 
-    #returns a user who is busted. can change to multiple results via "find_all"
-    def busted_users
-		self.users.find { |u| value(u.hand(self)) > 21 } 
-	end
-    #returns a user who is not busted. can change to multiple results via "find_all"
-	def nonbusted_users
-		self.users.find { |u| value(u.hand(self)) <= 21 } 
-	end
+  # game ends when one player has cards with value >=21
+  # or a user has stood
+  def is_round_over?
+    users.find { |u| value(u.hand(self)) >= 21 } || (users.find { |u| u.has_stood == true }) != nil
+  end
 
-    #returnsa  user who has an exact hand value of 21. can change to multiple results via "find_all"
-    def twentyone_users
-		self.users.find{ |u| value(u.hand(self)) == 21 }
-	end
-    #returns who won the game.
-    def who_won
-		winner = nil
-		if self.is_round_over? then
-            twentyone_user = twentyone_users
-			if (twentyone_user )
-                winner = twentyone_user 
-            elsif (nonbusted_users)
-                highest=0
-                for user in self.users
-                    hand_value = value(user.hand(self))
-                    if hand_value == highest && hand_value < 22
-                        return 'tie'
-                    end
-                    if hand_value > highest && hand_value < 22
-                        highest = hand_value
-                        winner=user
-                    end
-                end
-            end
-		end
-		return winner
-	end
+  # returns a user who is busted. can change to multiple results via "find_all"
+  def busted_users
+    users.find { |u| value(u.hand(self)) > 21 }
+  end
 
+  # returns a user who is not busted. can change to multiple results via "find_all"
+  def nonbusted_users
+    users.find { |u| value(u.hand(self)) <= 21 }
+  end
+
+  # returnsa  user who has an exact hand value of 21. can change to multiple results via "find_all"
+  def twentyone_users
+    users.find { |u| value(u.hand(self)) == 21 }
+  end
+
+  # returns who won the game.
+  def who_won
+    winner = nil
+    if is_round_over?
+      twentyone_user = twentyone_users
+      if twentyone_user
+        winner = twentyone_user
+      elsif nonbusted_users
+        highest = 0
+        users.each do |user|
+          hand_value = value(user.hand(self))
+          return 'tie' if hand_value == highest && hand_value < 22
+
+          if hand_value > highest && hand_value < 22
+            highest = hand_value
+            winner = user
+          end
+        end
+      end
+    end
+    winner
+  end
 
   # calculates the value of a hand.
   # any card with an integer value is worth that amount
