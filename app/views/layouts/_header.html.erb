@@ -1,12 +1,14 @@
 <header class="navbar navbar-fixed-top navbar-dark navbar-custom">
  <div class="container-fluid">
     <ul>
-        <%= link_to "blackjack", root_path, id: "logo" %>
+    <div id="title">
+      <%= link_to "blackjack", root_path, id: "logo" %>
+    <div>
     </ul>
     <br>
-      <h1 style="text-align: left; font-size: 1.2em; margin-top: 20px; margin-bottom: -120px"; > by Nathaniel, Henry & Jared<h1>
+      <h1 style="text-align: left; font-size: 1.2em; margin-top: 20px; margin-bottom: -120px;" > by Nathaniel, Henry & Jared<h1>
       <% if logged_in? %>
-      <h1 style="font-size: 3.0em; margin-top: 90px; margin-bottom: -120px; text-align: center;" > Tokens: <%= current_user.tokens%> <h1>
+      <h1 style="font-size: 3.0em; margin-top: 90px; margin-bottom: -120px; text-align: center; font-weight: bold" > Tokens: <%= current_user.tokens%> <h1>
       <%end%>
   <div>
 <nav class="navbar">

@@ -5,10 +5,11 @@
   
   <% if logged_in?%>
     <h2>You're logged in.<h2>
-    <%= link_to "Play a Game!",  '/bet', class: "btn btn-lg btn-success"%>
+    <%= link_to "Play a Game!",  '/bet', style: "font-size: 30px; color: white", class: "btn btn-lg btn-success"%>
+    
     <br> <br>
     
-     <%= link_to "View your profile", current_user, class: "btn btn-lg btn-primary" %>
+     <%= link_to "View your profile", current_user, style: "font-size: 20px; margin-bottom: 450px; color:white", class: "btn btn-lg btn-primary" %>
     
     
   <%else%>
@@ -22,22 +23,23 @@
 
       <%= f.label :password, class: 'label' %>
       <%= f.password_field :password, class: 'form-control' %>
- 
+
+      <div style="color:white; font-size: 15px">
       <%= f.label :remember_me, class: "checkbox inline" do %>
         <%= f.check_box :remember_me %>
         <span>Remember me </span>
+      <div>
       <% end %>
 
 
       <%= f.submit "Log in", class: "btn btn-lg btn-success" %>
       <h2>or </h2>
-       <%= link_to "Sign up!", signup_path, class: "btn btn-lg btn-primary"%>
+       <%= link_to "Sign up!", signup_path, style: "margin-bottom: 280px; color: white", class: "btn btn-lg btn-primary"%>
     <% end %>
 
     
   </div>
 </div>
    <%end%>
-   <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+   
 </div>
