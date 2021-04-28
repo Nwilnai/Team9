@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <div style="background-image: url('https://images.unsplash.com/photo-1601370690183-1c7796ecec61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=750&q=80');">
-<img src="table.jpeg"/>
   
   <head>
     <title><%= full_title(yield(:title)) %></title>
@@ -12,7 +11,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all',
                                            'data-turbolinks-track': 'reload' %>
-    <%#= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= render 'layouts/shim' %>
   </head>
     <body>
