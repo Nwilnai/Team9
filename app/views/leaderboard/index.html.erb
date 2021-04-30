@@ -3,18 +3,21 @@
 <table>
     <thead>
         <tr>
-            <th> Rank </th> 
-            <th> Username </th>
-            <th> Total Tokens </th>
+            <th style = "color:white; font-size: 20px;"> Rank </th> 
+            <br>
+            <th style = "color:white; font-size: 20px;"> Username </th>
+            <th style = "color:white; font-size: 20px;"> Total Tokens </th>
         </tr>
+       
     </thead>
-
+    <div>
+          
     <tbody>
         <% @ranks.each do |rank| %>
             <tr>
-                <td> <%= @ranks.find_index(rank) + 1%></td>
-                <td> <%= rank[0].name%> </td>
-                <td> <%= rank[1]%>
+                <td style = "color:white; font-size: 20px" > <%= @ranks.find_index(rank) + 1%></td>
+                <td style = "color:white; font-size: 20px"> <%= rank[0].name%> </td>
+                <td style = "color:white; font-size: 20px"> <%= rank[1]%>
             </tr>
         <%end%>
     </tbody>
