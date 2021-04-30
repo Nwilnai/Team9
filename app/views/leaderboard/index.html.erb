@@ -1,0 +1,23 @@
+<h1>Welcome to the Leaderboard!</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th> Rank </th> 
+            <th> Username </th>
+            <th> Total Tokens </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <% @ranks.each do |rank| %>
+            <tr>
+                <td> <%= @ranks.find_index(rank) + 1%></td>
+                <td> <%= rank[0].name%> </td>
+                <td> <%= rank[1]%>
+            </tr>
+        <%end%>
+    </tbody>
+</table>
+
+<br>
