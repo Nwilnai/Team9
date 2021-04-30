@@ -8,7 +8,7 @@ Trello Link: https://trello.com/b/fLieZouT/capstone-team-9
 
 Continuous Integration is working, and our workflow file can be found in .github/workflows/CI.yml. Our tests run automatically after any pushes to master or any time a PR is made/updated. Heroku does not pull the changes until the tests have passed.
 
-Functionality: Users can sign up, sign in and sign out of their accounts. When users sign up, they get 500 tokens. Once logged in, users can play a game of blackjack against the computerized dealer. Within each game of blackjack, users can choose an amount of tokens to bet (from 10 to their total # of tokens) and then users can decide to either ‘hit’ or ‘stand’ depending on the cards that they have received, as well as the dealer's single showing card. Users can also access their profile page, which contains their email, the number of tokens they have accumulated, and an option to update their sign-up information. If a user runs out of tokens, they can visit our store to restock! In our store, we gift 100 tokens to any user with less than 100 tokens. If a player begins a game with an insufficient amount of tokens, a link to the store will appear on the betting page. If users are new to blackjack, they can view the rules of blackjack in our about page, as well as learn some strategies for becoming the ultimate blackjack guru! If users encounter any problems, they can visit the help page, where they can use our mail form to easily shoot us an email!
+Functionality: Users can sign up, sign in and sign out of their accounts. When users sign up, they get 500 tokens. Once logged in, users can play a game of blackjack against the computerized dealer. Within each game of blackjack, users can choose an amount of tokens to bet (from 10 to their total # of tokens) and then users can decide to either ‘hit’ or ‘stand’ depending on the cards that they have received, as well as the dealer's single showing card. Users can also access their profile page, which contains their email, the number of tokens they have accumulated, and an option to update their sign-up information. If a user runs out of tokens, they can visit our store to restock! In our store, we gift 100 tokens to any user with less than 100 tokens. If a player begins a game with an insufficient amount of tokens, a link to the store will appear on the betting page. Users can also visit the leaderboard page which shows all users, and their rank by total amount of tokens. If users are new to blackjack, they can view the rules of blackjack in our about page, as well as learn some strategies for becoming the ultimate blackjack guru! If users encounter any problems, they can visit the help page, where they can use our mail form to easily shoot us an email!
 
 Easy-to-miss functionality: Our hit and stand buttons ensure that a user can only submit a hit or stand action once, preventing the user from hitting multiple times (which would cause them to have many cards by the time the page reloaded). Our game logic ensures that reloading the page after a win (or loss) will not continuously reward users for the same victory. 
 
@@ -19,7 +19,7 @@ URL Patterns:
 - /users/1/edit	Settings page (edits user 1)
 - /login			Login page (displays user login prompt)
 - /logout			Logout page
-- /leaderboard                  (IN-PROGRESS) Leaderboard page (based on # of tokens)
+- /leaderboard                  Leaderboard page (based on # of tokens)
 - /help			        Help page
 - /about			About page
 - /admin                        RailsAdmin
@@ -51,7 +51,9 @@ Key views and models:
 
 -- Static Pages -
 - Updated home page with login form on the home page, rather than as separate view (/)
-- (IN-PROGRESS) Leaderboad page which allows users to see how they rank against other users based on win totals (/leaders) 
+
+--Leaderboard Page--
+-Leaderboard page which allows users to see how they rank against other users based on win totals (/leaders) 
 
 
 
