@@ -5,10 +5,6 @@ class GameSessionsControllerTest < ActionDispatch::IntegrationTest
     @game_session = game_sessions(:one)
   end
 
-  test 'should get index' do
-    get game_sessions_url
-    assert_response :success
-  end
 
   test 'should show game_session' do
     get game_session_url(@game_session)
