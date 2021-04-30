@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post  '/login',   to: 'sessions#create'
   get '/logout',  to: 'sessions#destroy'
   get '/bet', to: 'games#bet'
+  get '/leaderboard', to: 'leaderboard#index'
   get 'users/add_tokens', to: 'users#add_tokens'
   get   '/games/:id/hit', to: 'games#hit', as: 'hit'
   get   '/games/:id/stand', to: 'games#stand', as: 'stand'
