@@ -4,6 +4,9 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user = User.new(name: 'Example User', email: 'user@example.com',
                      password: 'foobar', password_confirmation: 'foobar')
+    @game = Game.new()
+    @game.add_user(@user)
+    
   end
 
   test 'should be valid' do
@@ -67,4 +70,27 @@ class UserTest < ActiveSupport::TestCase
   test 'authenticated? should return false for a user with nil digest' do
     assert_not @user.authenticated?('')
   end
+
+  test 'has hit' do
+    @game.init_game
+    @user.hit_me(@game)
+    assert_not(@user.has_stood)
+  end
+
+  # test 'dealer hit' do
+  #   assert_not(@user.dealer_hit?(@game))
+  # end
+
+  # test 'update tokens' do
+  #   @game.init_game
+  #   @user.update_tokens(100)
+  #   assert_equal(@user.tokens, 100)
+  # end
+  
+  # test 'increment wins' do
+  #   @game.init_game
+  #   @user.increment_wins
+  #   assert_equal(@user.wins, 1)
+  # end
+
 end
