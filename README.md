@@ -52,8 +52,8 @@ Key views and models:
 -- Static Pages -
 - Updated home page with login form on the home page, rather than as separate view (/)
 
---Leaderboard Page--
--Leaderboard page which allows users to see how they rank against other users based on win totals (/leaders) 
+--Leaderboard Page-
+- Leaderboard page which allows users to see how they rank against other users based on win totals (/leaders) 
 
 
 
