@@ -8,9 +8,11 @@ class LeaderboardController < ApplicationController
     def rank_users
         ranks = []
         User.all.each do |user|
-            token_amount = user.tokens
-            ranks.push([user, token_amount])
+            if user.tokens.nil? == false
+                token_amount = user.tokens
+                ranks.push([user, token_amount])
+            end
         end
-        ranks.sort_by {|var| var[1]}
+        return ranks.sort_by{|var| var[1]}.reverse
     end
 end
