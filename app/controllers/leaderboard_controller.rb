@@ -13,7 +13,6 @@ class LeaderboardController < ApplicationController
                 ranks.push([user, token_amount])
             end
         end
-        print(ranks)
         return ranks.sort_by{|var| var[1]}.reverse
     end
 end
