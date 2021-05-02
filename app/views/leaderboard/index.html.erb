@@ -1,23 +1,23 @@
 <h1>Welcome to the Leaderboard!</h1>
 
-<table>
+<table style = "margin-bottom: 40px; text-align: center;">
     <thead>
-        <tr>
-            <th style = "color:white; font-size: 20px;"> Rank </th> 
-            <br>
-            <th style = "color:white; font-size: 20px;"> Username </th>
-            <th style = "color:white; font-size: 20px;"> Total Tokens </th>
+        <tr style = "font-family: Georgia; color: white; font-size: 30px; ">
+            <th style = " padding-right: 60px;"> Rank </th> 
+            <th style = " padding-right: 60px;"> Username </th>
+            <th style = "padding-right: 60px;"> Tokens </th>
         </tr>
        
     </thead>
     <div>
           
-    <tbody>
+    <tbody >
+    
         <% @ranks.each do |rank| %>
-            <tr>
-                <td style = "color:white; font-size: 20px" > <%= @ranks.find_index(rank) + 1%></td>
-                <td style = "color:white; font-size: 20px"> <%= rank[0].name%> </td>
-                <td style = "color:white; font-size: 20px"> <%= rank[1]%>
+            <tr style = "color: white; ">
+                <td style ="font-family: Georgia;font-size: 20px;"> <%= @ranks.find_index(rank) + 1%></td>
+                <td style ="font-family: Georgia;font-size: 20px;"> <%= rank[0].name%> </td>
+                <td style ="font-family: Georgia;font-size: 20px;"> <%= rank[1]%>
             </tr>
         <%end%>
     </tbody>

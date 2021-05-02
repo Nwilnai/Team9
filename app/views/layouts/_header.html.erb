@@ -18,15 +18,14 @@
         <% if logged_in? %>
               <li><%= link_to "Profile", current_user, id: "heading"  %></li>
               <li><%= link_to "Store", store_path, id: "heading"%></li>
-              <li><%= link_to "Leaderboards", leaderboard_path, id: "heading"%></li>
+              <li><%= link_to "Leaderboard", leaderboard_path, id: "heading"%></li>
               <li class="divider"></li>
               <li> 
                 <%= link_to "Log out", logout_path, id: "heading"  %>
               </li>    
         <% else %>
           <li><%= link_to "Sign up", signup_path, id: "heading" %></li>
-          <li><%= link_to "Log in", root_path, id: "heading" %></li>
-
+          
         <% end %>
     </nav>
 
