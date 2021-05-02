@@ -36,7 +36,7 @@ class GameTest < ActiveSupport::TestCase
   end
 
   test 'user should win when dealer busts' do
-    while @game.value(@game.dealer_hand) < 21 do
+    while @game.value(@game.dealer_hand) < 22 do
       @game.dealer.hit_me(@game)
     end
     assert_equal @user, @game.who_won
