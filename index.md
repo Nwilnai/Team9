@@ -1,9 +1,9 @@
 ## Welcome to Team 9's Project Pages
 
 ### Our Team
-Nathaniel Wilnai - nathanielw@brandeis.edu
-Henry Arvans - harvans5@brandeis.edu
-Jared Panson - jaredpanson@brandeis.edu
+- Nathaniel Wilnai - nathanielw@brandeis.edu
+- Henry Arvans - harvans5@brandeis.edu
+- Jared Panson - jaredpanson@brandeis.edu
 
 ### Our Product
 What the purpose of the product is, what kind of user would want it.
