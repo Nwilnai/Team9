@@ -3,8 +3,8 @@
 ### Our Team
 
 Our deployed website:
-<img src="homepage.jpeg", size: "182x250"
-     style="float: left; margin-right: 10px;" />
+<img src="homepage.jpeg"
+     style="float: left; margin-right: 10px; size: "182x250"" />
 
 
 
@@ -80,6 +80,7 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 
 
 A diagram of our architecture:
+
 <img src="architecture.jpeg"
      style="float: left; margin-right: 10px;" />
 
