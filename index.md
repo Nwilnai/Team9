@@ -2,6 +2,8 @@
 
 ### Our Team
 
+![Our deployed website](https://cdn.hswstatic.com/gif/how-to-play-blackjack-lead.jpg)
+
 - Nathaniel Wilnai - nathanielw@brandeis.edu
 - Henry Arvans - harvans5@brandeis.edu
 - Jared Panson - jaredpanson@brandeis.edu
@@ -72,10 +74,9 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 
 A screenshot of our website:
 
-![](homepage.jpeg)
-<img src="homepage.jpeg"
-     alt="Markdown Monster icon"
-     style="float: left; margin-right: 10px;" />
+
+![A diagram of our architecture](./Desktop./homepage.jpeg)
+
 
 
 
