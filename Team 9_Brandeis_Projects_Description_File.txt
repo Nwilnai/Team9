@@ -1,0 +1,9 @@
+name: blackjack
+blurb: Introducing blackjack online where you can compete against the dealer to improve your blackjack game and win tokens in the process. If you’re really good, you may even find your way to the top of our leaderboard.
+course: CS166B
+semester: 2021 (Spring)
+github: https://github.com/Nwilnai/Team-9
+application: https://gentle-stream-27906.herokuapp.com/
+presentation: https://docs.google.com/presentation/d/1KCOHBxWwkd015vKZApn_Zhy0q7A7dfUUke3rOXU2_v8/edit?usp=sharing
+image: https://cdn.hswstatic.com/gif/how-to-play-blackjack-lead.jpg
+team: Nathaniel Wilnai, Henry Arvans, Jared Panson
