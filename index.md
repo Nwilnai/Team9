@@ -3,7 +3,9 @@
 ### Our Team
 
 ![Our deployed website](homepage.jpeg)
-![Our deployed website](/master/architecture.jpeg)
+<img src="architecture.jpeg"
+     style="float: left; margin-right: 10px;" />
+
 
 - Nathaniel Wilnai - nathanielw@brandeis.edu
 - Henry Arvans - harvans5@brandeis.edu
