@@ -4,7 +4,7 @@
 
 Our deployed website:
 <img src="homepage.jpeg"
-     style="float: left; margin-right: 10px; width: 500px;" />
+     style="float: center; margin-right: 10px; width: 750px;" />
 
 
 
@@ -79,7 +79,7 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 A diagram of our architecture:
 
 <img src="architecture.jpeg"
-     style="float: left; margin-right: 10px; width: 150px;" />
+     style="float: left; margin-right: 10px; width: 750px;" />
 
 
 
