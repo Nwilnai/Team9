@@ -3,7 +3,7 @@
 ### Our Team
 
 Our deployed website:
-<img src="homepage.jpeg"
+<img src="homepage.jpeg", size: "182x250"
      style="float: left; margin-right: 10px;" />
 
 
