@@ -52,10 +52,10 @@ Game_sessions: The join table between users and games.
 
 ### Interesting Engineering
 
-- Mail_form: https://github.com/heartcombo/mail_form - The mail form gem creates a simple form which our users can use to ask us questions and give us feedback about our site, without having to actually email us themselves.
+- Mail_form: [https://github.com/heartcombo/mail_form](https://github.com/heartcombo/mail_form)- The mail form gem creates a simple form which our users can use to ask us questions and give us feedback about our site, without having to actually email us themselves.
 We utilized the gem by installing it and writing “require ‘mail_form’” in the controller. We also created a scaffold for contact and within the controller for contact for def create we were able to use mail_forms main feature (deliver). This was done with @contact.deliver which then attempts to send the email from the form. Lastly we needed to include a delivery method using SMTP in both the development and production files which works well with gmail allowing us to create a gmail account for our application and putting its port, domain, account name and password in the file. This then allows the emails to be sent when contact.deliver is called.
 
-- Deck of Cards API: https://deckofcardsapi.com/ - This API allows for the creation of decks, each of which can be split into piles. The API saves the state of each deck (and pile), allowing us to use it to represent every player's hand. We have a new deck assigned to each game, from which all the cards are drawn. This has its upsides and downsides. On the upside, we didn't have to create cards and save their state. On the downside, however, our website takes a bit longer to respond due to the API requests going on in the background, and the request fails once in a while. However, one of our primary goals in doing this project was learning how to use an API, and this API served that purpose well.
+- Deck of Cards API: [https://deckofcardsapi.com/](https://deckofcardsapi.com/) - This API allows for the creation of decks, each of which can be split into piles. The API saves the state of each deck (and pile), allowing us to use it to represent every player's hand. We have a new deck assigned to each game, from which all the cards are drawn. This has its upsides and downsides. On the upside, we didn't have to create cards and save their state. On the downside, however, our website takes a bit longer to respond due to the API requests going on in the background, and the request fails once in a while. However, one of our primary goals in doing this project was learning how to use an API, and this API served that purpose well.
 
 - Leaderboard: We included a leaderboard to create competition amongst our users, and to give them a sense of how they rank amongst their peers.
 To create this, we created a new leaderboard controller and a private method inside of it called rank_users(). This method iterates through all users with tokens and adds them to a list variable @ranks. Once done iterating, the list of users are then sorted by token amount, just as they are displayed in a traditional leaderboard.
@@ -79,7 +79,7 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 A diagram of our architecture:
 
 <img src="architecture.jpeg"
-     style="float: left; margin-right: 10px;" />
+     style="float: left; margin-right: 10px; width: 150px;" />
 
 
 
