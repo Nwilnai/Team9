@@ -33,12 +33,12 @@ Game_sessions: The join table between users and games.
 
 ### Technologies
 
-- [Heroku Link for deployed app:] (https://gentle-stream-27906.herokuapp.com/)
-- Github repo: [https://github.com/Nwilnai/Team9]
-- Trello Link: https://trello.com/b/fLieZouT/capstone-team-9
-- Deck of Cards API: https://deckofcardsapi.com/
-- Mail_form: https://github.com/heartcombo/mail_form 
-- Faker: https://github.com/faker-ruby/faker
+- [Heroku Link for deployed app:](https://gentle-stream-27906.herokuapp.com/)
+- [Github repo:](https://github.com/Nwilnai/Team9)
+- [Trello Link:](https://trello.com/b/fLieZouT/capstone-team-9)
+- [Deck of Cards API:](https://deckofcardsapi.com/)
+- [Mail_form:](https://github.com/heartcombo/mail_form)
+- [Faker:](https://github.com/faker-ruby/faker)
 - Github Pages
 - Github Actions (Workflow for CI)
 - New Languages (HTML, CSS, SCSS, JS)
@@ -72,6 +72,7 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 
 A screenshot of our website:
 
+![](homepage.jpeg)
 <img src="homepage.jpeg"
      alt="Markdown Monster icon"
      style="float: left; margin-right: 10px;" />
