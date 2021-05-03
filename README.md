@@ -2,11 +2,14 @@
 
 Heroku Link for deployed app: https://gentle-stream-27906.herokuapp.com/
 
+Github Pages: https://nwilnai.github.io/Team9/
+
+Github pages branch (gh-pages) link: https://github.com/Nwilnai/Team9/tree/gh-pages
+
 Github repo: https://github.com/Nwilnai/Team9
 
 Trello Link: https://trello.com/b/fLieZouT/capstone-team-9
 
-Github Pages: https://nwilnai.github.io/Team9/
 
 Continuous Integration is working, and our workflow file can be found in .github/workflows/CI.yml. Our tests run automatically after any pushes to master or any time a PR is made/updated. Heroku does not pull the changes until the tests have passed.
 
