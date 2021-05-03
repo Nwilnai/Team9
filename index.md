@@ -4,7 +4,7 @@
 
 Our deployed website:
 <img src="homepage.jpeg"
-     style="float: left; margin-right: 10px; width: 50px;" />
+     style="float: left; margin-right: 10px; width: 100px;" />
 
 
 
