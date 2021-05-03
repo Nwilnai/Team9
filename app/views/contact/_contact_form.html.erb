@@ -1,13 +1,13 @@
 <%= form_for @contact, url: contact_index_path, remote: true do |f| %>
  <%= token_tag %> 
     <div class="col-md-6 col-md-offset-3">
-        <%= f.label :name %></br>
+        <%= f.label :name, class: 'label' %>
         <%= f.text_field  :name, required: true, class: "contact-form-text-area" %></br>
 
-        <%= f.label :email %></br>
+        <%= f.label :email, class: 'label' %>
         <%= f.text_field :email, required: true, class: "contact-form-text-area", placeholder: "Please put your email here if you'd like us to respond!" %></br>
 
-      <%= f.label :message %></br>
+      <%= f.label :message, class: 'label' %>
       <%= f.text_area :message, rows: 8, cols: 40, required: true, class: "contact-form-text-area",
                         placeholder: "Send us a message!"%></br>
       
