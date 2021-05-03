@@ -33,8 +33,8 @@ Game_sessions: The join table between users and games.
 
 ### Technologies
 
-- Heroku Link for deployed app: https://gentle-stream-27906.herokuapp.com/
-- Github repo: https://github.com/Nwilnai/Team9
+- Heroku Link for deployed app: https://gentle-stream-27906.herokuapp.com/ (url)
+- Github repo: https://github.com/Nwilnai/Team9 (url)
 - Trello Link: https://trello.com/b/fLieZouT/capstone-team-9
 - Deck of Cards API: https://deckofcardsapi.com/
 - Mail_form: https://github.com/heartcombo/mail_form 
