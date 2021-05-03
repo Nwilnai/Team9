@@ -2,9 +2,10 @@
 
 ### Our Team
 
-![Our deployed website](homepage.jpeg)
-<img src="architecture.jpeg"
+Our deployed website:
+<img src="homepage.jpeg"
      style="float: left; margin-right: 10px;" />
+
 
 
 - Nathaniel Wilnai - nathanielw@brandeis.edu
@@ -75,10 +76,12 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 
 ### Architecture
 
-A screenshot of our website:
 
 
-![A diagram of our architecture](./Desktop./homepage.jpeg)
+
+A diagram of our architecture:
+<img src="architecture.jpeg"
+     style="float: left; margin-right: 10px;" />
 
 
 
