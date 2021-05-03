@@ -70,7 +70,9 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 
 ### Architecture
 
-Include at least one screenshot and also a diagram of the architecture
+A screenshot of our website:
+
+Architecture: ![](https://drive.google.com/file/d/1Xcl3484F6XBdbk_bMkNs-PEyQD3thpVx/view?usp=sharing)
 
 
 # Default Text (To Be Deleted)
