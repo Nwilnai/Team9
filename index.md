@@ -72,7 +72,11 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 
 A screenshot of our website:
 
-Architecture: ![](https://drive.google.com/file/d/1Xcl3484F6XBdbk_bMkNs-PEyQD3thpVx/view?usp=sharing)
+<img src=""
+     alt="Markdown Monster icon"
+     style="float: left; margin-right: 10px;" />
+
+Architecture: ![](markdownmonstericon.png)
 
 
 # Default Text (To Be Deleted)
