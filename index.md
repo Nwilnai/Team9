@@ -4,7 +4,7 @@
 
 Our deployed website:
 <img src="homepage.jpeg"
-     style="float: left; margin-right: 10px; size: "182x250"" />
+     style="float: left; margin-right: 10px; width: 150px;" />
 
 
 
@@ -76,29 +76,12 @@ As far as work allocation was concerned, we trusted everyone to have a good idea
 
 ### Architecture
 
-
-
-
 A diagram of our architecture:
 
 <img src="architecture.jpeg"
      style="float: left; margin-right: 10px;" />
 
 
-
-
-# Default Text (To Be Deleted)
-
-You can use the [editor on GitHub](https://github.com/Nwilnai/Team9/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
 
 # Header 1
 ## Header 2
@@ -113,6 +96,3 @@ Syntax highlighted code block
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
