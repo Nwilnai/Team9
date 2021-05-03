@@ -1,12 +1,11 @@
 ## Welcome to Team 9's Project Pages
 
-### Our Team
-
 Our deployed website:
 <img src="homepage.jpeg"
      style="float: center; margin-right: 10px; width: 750px;" />
 
 
+### Our Team
 
 - Nathaniel Wilnai - nathanielw@brandeis.edu
 - Henry Arvans - harvans5@brandeis.edu
