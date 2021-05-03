@@ -2,7 +2,8 @@
 
 ### Our Team
 
-![Our deployed website](https://drive.google.com/file/d/1Xcl3484F6XBdbk_bMkNs-PEyQD3thpVx/view?usp=sharing)
+![Our deployed website](/Users/JaredPanson/Desktop/architecture.jpeg)
+![Our deployed website](/Users/JaredPanson/Desktop/homepage.jpeg)
 
 - Nathaniel Wilnai - nathanielw@brandeis.edu
 - Henry Arvans - harvans5@brandeis.edu
@@ -35,12 +36,12 @@ Game_sessions: The join table between users and games.
 
 ### Technologies
 
-- Heroku Link for deployed app:[https://gentle-stream-27906.herokuapp.com/](https://gentle-stream-27906.herokuapp.com/)
-- Github repo:[https://github.com/Nwilnai/Team9](https://github.com/Nwilnai/Team9)
-- Trello Link:[https://trello.com/b/fLieZouT/capstone-team-9](https://trello.com/b/fLieZouT/capstone-team-9)
-- Deck of Cards API:[https://deckofcardsapi.com/](https://deckofcardsapi.com/)
-- Mail_form:[https://github.com/heartcombo/mail_form](https://github.com/heartcombo/mail_form)
-- Faker:[https://github.com/faker-ruby/faker](https://github.com/faker-ruby/faker)
+- Heroku Link for deployed app: [https://gentle-stream-27906.herokuapp.com/](https://gentle-stream-27906.herokuapp.com/)
+- Github repo: [https://github.com/Nwilnai/Team9](https://github.com/Nwilnai/Team9)
+- Trello Link: [https://trello.com/b/fLieZouT/capstone-team-9](https://trello.com/b/fLieZouT/capstone-team-9)
+- Deck of Cards API: [https://deckofcardsapi.com/](https://deckofcardsapi.com/)
+- Mail_form: [https://github.com/heartcombo/mail_form](https://github.com/heartcombo/mail_form)
+- Faker: [https://github.com/faker-ruby/faker](https://github.com/faker-ruby/faker)
 - Github Pages
 - Github Actions (Workflow for CI)
 - New Languages (HTML, CSS, SCSS, JS)
