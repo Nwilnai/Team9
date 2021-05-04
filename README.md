@@ -10,6 +10,7 @@ Github repo: https://github.com/Nwilnai/Team9
 
 Trello Link: https://trello.com/b/fLieZouT/capstone-team-9
 
+Brandeis Projects Descriptions File: https://github.com/Nwilnai/Team9/blob/master/Team%209_Brandeis_Projects_Description_File.txt
 
 Continuous Integration is working, and our workflow file can be found in .github/workflows/CI.yml. Our tests run automatically after any pushes to master or any time a PR is made/updated. Heroku does not pull the changes until the tests have passed.
 
